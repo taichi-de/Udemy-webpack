@@ -4,9 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development', //default:production
-  // devtool: 'source-map',
-  devtool: 'eval-source-map',
+  mode: 'production',
+  // devtool: 'eval-source-map',
   entry: {
     main: './src/javascripts/main.js',
   },
@@ -49,7 +48,7 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: { sourceMap: false },
+            options: { sourceMap: true },
           },
           {
             loader: 'sass-loader',
@@ -57,7 +56,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|jpeg)/,
+        test: /\.png|\.jpg/,
         type: 'asset/resource',
         generator: {
           filename: 'images/[name][ext]',
@@ -71,14 +70,14 @@ module.exports = {
           //   },
           // },
           {
-      loader: 'image-webpack-loader',
-      options: {
-        mozjpeg: {
-          progressive: true,
-          quality: 65,
-        },
-      },
-    },
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+            },
+          },
         ],
       },
       {
