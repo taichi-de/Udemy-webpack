@@ -2,31 +2,32 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development', //default:production
-  devtool: 'source-map',
+  // devtool: 'source-map',
+  devtool: 'eval-source-map',
   entry: {
     main: './src/javascripts/main.js',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'javascripts/main.js',
+    publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.vue/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'vue-loader',
-          }
+            loader: 'ts-loader',
+          },
         ],
       },
       {
-        test: /\.js/,
+        test: /\.(js|jsx)/,
         exclude: /node_modules/,
         use: [
           {
@@ -41,7 +42,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(css|scss|sass)/,
+        test: /\.(css|scss|sass)$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -97,7 +98,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: './stylesheets/main.css',
     }),
