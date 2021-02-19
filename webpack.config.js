@@ -22,6 +22,21 @@ module.exports = {
           }
         ],
       },
+      {
+        test: /\.(png|jpg)/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        },
+        use: [
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          // },
+          // {
+          //   loader: 'css-loader',
+          // }
+        ],
+      },
     ],
   },
   plugins: [
