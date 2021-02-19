@@ -6,6 +6,15 @@ body {
   background-color: darkgoldenrod;
 }
 
-img {
-  width: 300px;
+nav ul {
+  display: flex;
+  margin: 0;
+}
+nav ul li {
+  display: flex;
+  list-style: none;
+}
+nav ul li a {
+  color: #f3f3f3;
+  margin-right: 30px;
 }
