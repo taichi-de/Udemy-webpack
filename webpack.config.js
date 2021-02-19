@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/javascripts/main.js',
+  entry: {
+    main: './src/javascripts/main.js',
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'javascripts/main.js',
@@ -12,23 +14,33 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css/,
+        test: /\.(css|scss|sass)/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
-          }
+          },
+          {
+            loader: 'sass-loader',
+          },
         ],
       },
       {
-        test: /\.(png|jpg)/,
+        test: /\.png|\.jpg/,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext]'
+          filename: 'images/[name][ext]',
         },
         use: [
+          // {
+          //   loader: 'file-loader',
+          //   options: {
+          //     esModule: false,
+          //     name: 'images/[name].[ext]',
+          //   },
+          // },
         ],
       },
       {
@@ -41,8 +53,8 @@ module.exports = {
             loader: 'pug-html-loader',
             options: {
               pretty: true,
-            }
-          }
+            },
+          },
         ],
       },
     ],
