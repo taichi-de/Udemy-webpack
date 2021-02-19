@@ -18,7 +18,12 @@
   "homepage": "https://github.com/taichi-de/Udemy-webpack#readme",
   "private": true,
   "devDependencies": {
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.0.3"
   }
 }
