@@ -1,7 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -15,40 +17,38 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
+        use: [{
+          loader: 'ts-loader',
+        }, ],
       },
       {
         test: /\.(js|jsx)/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                ['@babel/preset-env', { "targets": "> 0.25%, not dead" }],
-                '@babel/preset-react',
-              ],
-            },
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', {
+                "targets": "> 0.25%, not dead"
+              }],
+              '@babel/preset-react',
+            ],
           },
-        ],
+        }, ],
       },
       {
         test: /\.(css|scss|sass)$/,
-        use: [
-          {
+        use: [{
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true
+            },
           },
           {
             loader: 'sass-loader',
@@ -82,8 +82,7 @@ module.exports = {
       },
       {
         test: /\.pug/,
-        use: [
-          {
+        use: [{
             loader: 'html-loader',
           },
           {
@@ -107,6 +106,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/templates/access.pug',
       filename: 'access.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/projects.pug',
+      filename: 'projects.html',
     }),
     new CleanWebpackPlugin(),
   ],
