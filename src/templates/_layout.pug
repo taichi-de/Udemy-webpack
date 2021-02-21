@@ -8,9 +8,9 @@ html(lang='en')
     title #{title}
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-  .container
+  .container-lg.bg-gray-400
     include _menu.pug
     h1 #{title}
     block content
-    .footer
+    .footer.w-full.h-50.bg-gray-100.text-center
       | Webpack Course

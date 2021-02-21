@@ -4,7 +4,45 @@ block locals
   - var title = 'Hello Pug!';
 
 block content
-  h1.title Hi! I'm John!
+  h1.title.bg-primary-300.font-bold.text-gray-300.bg-green-400.flex.pt-4.text-center Hi! I'm John!
   #react-boot
   .main-image
-    img.icon(src="../images/man-smiles.jpg")
+    img.icon.w-32.h-auto(src="../images/man-smiles.jpg")
+  .flex.p-6.font-mono.w-50
+    .flex-none.w-40.relative
+      img.absolute.inset-0.w-40.h-40.object-cover.border.border-gray.shadow-offset-lime(src='../images/stylish-man.jpg' alt='')
+    form.flex-auto.pl-6
+      .flex.flex-wrap.items-baseline.pl-52.-mt-6.-mr-6.-ml-52.py-6.pr-6.bg-black.text-white.h-100
+        h1.w-full.flex-none.text-2xl.leading-7.mb-2.font-bold
+          | Retro Shoe
+        .text-2xl.leading-7.font-bold
+          | $89.00
+        .text-sm.font-medium.ml-3
+          | In stock
+      .flex.items-baseline.py-8
+        .space-x-3.flex.text-center.text-sm.leading-none.font-bold.text-gray-500
+          label
+            input.w-6.text-black.shadow-underline(name='size' type='radio' value='xs' checked)
+            | XS
+          label
+            input.w-6(name='size' type='radio' value='s')
+            | S
+          label
+            input.w-6(name='size' type='radio' value='m')
+            | M
+          label
+            input.w-6(name='size' type='radio' value='l')
+            | L
+          label
+            input.w-6(name='size' type='radio' value='xl')
+            | XL
+        .ml-auto.text-xs.underline Size Guide
+      .flex.space-x-3.text-sm.font-bold.uppercase.mb-4
+        .flex-auto.flex.space-x-3
+          button.w-1.flex.items-center.justify-center.bg-lime-300.text-black.border.border-black.shadow-offset-black(type='submit') Buy now
+          button.w-1.flex.items-center.justify-center.border.border-black.shadow-offset-black(type='button') Add to bag
+        button.flex-none.flex.items-center.justify-center.w-9.h-9.border.border-black(type='button' aria-label='like')
+          svg(width='20' height='20' fill='currentColor')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z')
+              p.text-xs.leading-5.text-green-500
+                | Free shipping on all continental US orders.

@@ -1,5 +1,6 @@
 import ReactDom from 'react-dom';
 import * as React from 'react';
+import "tailwindcss/tailwind.css";
 
 const App = (props) => {
   return (
